@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -18,6 +19,17 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         return view('auth.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+    if ($user->role === 'pilot') {
+        return redirect()->route('pilot.dashboard');
+    } elseif ($user->role === 'engineer') {
+        return redirect()->route('engineer.dashboard');
+    } elseif ($user->role === 'technician') {
+        return redirect()->route('technician.dashboard');
+    }
     }
 
     /**
