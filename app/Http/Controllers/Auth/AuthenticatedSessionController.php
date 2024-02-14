@@ -21,15 +21,6 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    protected function authenticated(Request $request, $user)
-    {
-    if ($user->role === 'pilot') {
-        return redirect()->route('pilot.dashboard');
-    } elseif ($user->role === 'engineer') {
-        return redirect()->route('engineer.dashboard');
-    }
-    }
-
     /**
      * Handle an incoming authentication request.
      */
@@ -38,8 +29,18 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::check()) {
+            $user = Auth::user();
+            switch ($user->role) {
+                case 'pilot':
+                    return redirect()->intended('/pilot/dashboard');
+                case 'engineer':
+                    return redirect()->intended('/engineer/dashboard');
+                // Add more cases for other roles as needed
+                default:
+                    return redirect()->intended(RouteServiceProvider::HOME);
+            }
+        }
     }
 
     /**

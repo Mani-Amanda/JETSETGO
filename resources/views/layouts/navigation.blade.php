@@ -12,9 +12,6 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -89,20 +86,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Conditional Navigation Links Based on User's Role -->
-    @if(Auth::check())
-        @switch(Auth::user()->role)
-            @case('pilot')
-                <x-nav-link :href="route('pilot.dashboard')" :active="request()->routeIs('pilot.dashboard')">
-                    {{ __('Pilot Dashboard') }}
-                </x-nav-link>
-                @break
-            @case('engineer')
-                <x-nav-link :href="route('engineer.dashboard')" :active="request()->routeIs('engineer.dashboard')">
-                    {{ __('Engineer Dashboard') }}
-                </x-nav-link>
-                @break
-        @endswitch
-    @endif
 </nav>
