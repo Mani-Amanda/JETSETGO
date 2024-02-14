@@ -22,7 +22,6 @@
             <select id="role" name="role" class="mt-1 block w-full form-select">
                 <option value="pilot">Pilot</option>
                 <option value="engineer">Aircraft Engineer</option>
-                <option value="technician">Technician</option>
             </select>
         </div>
 

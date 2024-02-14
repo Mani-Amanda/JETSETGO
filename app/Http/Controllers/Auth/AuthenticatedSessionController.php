@@ -27,8 +27,6 @@ class AuthenticatedSessionController extends Controller
         return redirect()->route('pilot.dashboard');
     } elseif ($user->role === 'engineer') {
         return redirect()->route('engineer.dashboard');
-    } elseif ($user->role === 'technician') {
-        return redirect()->route('technician.dashboard');
     }
     }
 

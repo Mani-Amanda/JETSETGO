@@ -103,11 +103,6 @@
                     {{ __('Engineer Dashboard') }}
                 </x-nav-link>
                 @break
-            @case('technician')
-                <x-nav-link :href="route('technician.dashboard')" :active="request()->routeIs('technician.dashboard')">
-                    {{ __('Technician Dashboard') }}
-                </x-nav-link>
-                @break
         @endswitch
     @endif
 </nav>

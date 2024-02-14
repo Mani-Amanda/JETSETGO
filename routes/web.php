@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PilotDashboardController;
 use App\Http\Controllers\EngineerDashboardController;
-use App\Http\Controllers\TechnicianDashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +24,6 @@ Route::middleware(['role.engineer'])->group(function () {
     Route::get('/engineer/dashboard', [EngineerDashboardController::class, 'index'])->name('engineer.dashboard');
 });
 
-Route::middleware(['role.technician'])->group(function () {
-    Route::get('/technician/dashboard', [TechnicianDashboardController::class, 'index'])->name('technician.dashboard');
-});
 
 Route::get('/', function () {
     return view('welcome');

@@ -28,9 +28,6 @@ class RedirectIfAuthenticated
                     case 'engineer':
                         return redirect('/engineer/dashboard');
                         break;
-                    case 'technician':
-                        return redirect('/technician/dashboard');
-                        break;
                     default:
                         return redirect('/dashboard');
                         break;
