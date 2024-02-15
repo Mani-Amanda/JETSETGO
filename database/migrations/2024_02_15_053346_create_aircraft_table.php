@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('serviceability',['FMC','PMC','NMCE','NMCL','NMCB']);
             $table->time('endurance');
             $table->string('engineergiveremark');
-            $table->timestamps();
         });
     }
 

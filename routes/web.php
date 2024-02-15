@@ -6,6 +6,7 @@ use App\Http\Controllers\PilotDashboardController;
 use App\Http\Controllers\EngineerDashboardController;
 use App\Http\Controllers\AircraftController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,24 @@ Route::get('requestflight/{type}/{frame}', function ($type, $frame) {
 
 Route::post('create-aircraft', [AircraftController::class, 'create'])->name('create.aircraft');
 Route::post('/create-request', [App\Http\Controllers\PilotRequestController::class, 'create'])->name('create.request');
+
+Route::get('CheckPilotRequest', function() {
+    $aircrafts = App\Models\Aircraft::all(); // Assuming Aircraft is the model for your aircrafts
+    return view('CheckPilotRequest', ['aircrafts' => $aircrafts]);
+});
+
+
+Route::get('updateaircraft', function() {
+    $aircrafts = App\Models\Aircraft::all(); // Assuming Aircraft is the model for your aircrafts
+    return view('UpadateAircraft', ['aircrafts' => $aircrafts]);
+});;
+
+Route::get('update/{type}/{frame}', function ($type, $frame) {
+    return view('update', compact('type', 'frame'));
+})->name('update.flight');
+
+
+Route::post('/update-aircraft/{type}/{frame}', [AircraftController::class, 'update'])->name('update.aircraft');
 
 
 

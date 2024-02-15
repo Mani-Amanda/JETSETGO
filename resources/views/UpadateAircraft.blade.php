@@ -34,7 +34,7 @@
                             <div class="col-md-4">
                                 <div class="text-center">
                                     <ul>
-                                        <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
+                                        <li><a href="{{ route('update.aircraft', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
                                         {{-- Display other aircraft details as needed --}}
                                     </ul>
                                 </div>
@@ -45,14 +45,7 @@
                         @endif
                     @endforeach
                 </div>
-                <div class="row justify-content-center mt-4">
-                    <div class="col-auto">
-                        <button class="btn btn-secondary"><a href='\CheckPilotRequest'>Check Pilots Request</a></button>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-secondary"><a href='\updateaircraft'>Update Aircrafts</a></button>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>

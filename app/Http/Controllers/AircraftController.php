@@ -37,5 +37,23 @@ class AircraftController extends Controller
     // Redirect the user back to the form page or a different page
     return redirect()->back()->with('success', 'Aircraft record created successfully.');
 }
+public function update(Request $request, $type, $frame)
+{
+    // Retrieve the aircraft based on type and frame
+    $aircraft = Aircraft::where('type', $type)->where('frameno', $frame)->firstOrFail();
+
+    // Update the aircraft with the new data
+    $aircraft->serviceability = $request->input('serviceability');
+    $aircraft->endurance = $request->input('endurance');
+    $aircraft->engineergiveremark = $request->input('engineergiveremark');
+
+    // Save the updated record to the database
+    $aircraft->save();
+
+    // Redirect the user back to the form page or a different page
+    return redirect()->back()->with('success', 'Aircraft record updated successfully.');
+}
+
+
 
 }
