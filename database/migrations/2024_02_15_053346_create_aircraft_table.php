@@ -26,12 +26,15 @@ return new class extends Migration
             $table->string('etdfeild');
             $table->time('eta');
             $table->string('etafeild');
-            $table->string('remark');
+            $table->string('pilotgiveremark');
             $table->boolean('radarradarsurveillance')->default(false);
             $table->string('adcno');
             $table->string('captain');
             $table->string('copilot');
+            $table->string('engineergiveremark');
             $table->timestamps();
+            
+
         });
     }
 

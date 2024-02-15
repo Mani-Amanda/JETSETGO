@@ -22,10 +22,12 @@ class Aircraft extends Model
         'etdfeild',
         'eta',
         'etafeild',
-        'remark',
+        'pilotgiveremark',
         'radarradarsurveillance',
         'adcno',
         'captain',
         'copilot',
+        'engineergiveremark',
+
     ];
 }
