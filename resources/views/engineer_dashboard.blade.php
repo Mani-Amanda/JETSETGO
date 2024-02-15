@@ -9,7 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Engineer You're logged in!") }}
+                {{-- Iterate over aircrafts and display their details --}}
+                    <h3>Aircrafts List</h3>
+                    <ul>
+                        @foreach ($aircrafts as $aircraft)
+                            <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
+                            {{-- Display other aircraft details as needed --}}
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
