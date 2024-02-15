@@ -42,6 +42,7 @@ Route::get('requestflight/{type}/{frame}', function ($type, $frame) {
 })->name('request.flight');
 
 Route::post('create-aircraft', [AircraftController::class, 'create'])->name('create.aircraft');
+Route::post('/create-request', [App\Http\Controllers\PilotRequestController::class, 'create'])->name('create.request');
 
 
 

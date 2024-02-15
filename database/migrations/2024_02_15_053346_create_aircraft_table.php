@@ -16,25 +16,9 @@ return new class extends Migration
             $table->enum('type',['Y-12','B-200','MA-600']);
             $table->string('frameno');
             $table->enum('serviceability',['FMC','PMC','NMCE','NMCL','NMCB']);
-            $table->integer('fuel');
-            $table->enum('metric',['kg,pound,liters']);
-            $table->string('mission');
-            $table->boolean('setelapsetime')->default(true);
-            $table->time('elapsetime');
             $table->time('endurance');
-            $table->time('etd');
-            $table->string('etdfeild');
-            $table->time('eta');
-            $table->string('etafeild');
-            $table->string('pilotgiveremark');
-            $table->boolean('radarradarsurveillance')->default(false);
-            $table->string('adcno');
-            $table->string('captain');
-            $table->string('copilot');
             $table->string('engineergiveremark');
             $table->timestamps();
-            
-
         });
     }
 

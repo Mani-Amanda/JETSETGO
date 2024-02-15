@@ -12,13 +12,26 @@
                 {{-- Iterate over aircrafts and display their details --}}
                     <h3>Aircrafts List</h3>
                     <ul>
-                        @foreach ($aircrafts as $aircraft)
+                        @php
+                            $displayedCombinations = [];
+                            @endphp
+
+                            @foreach ($aircrafts as $aircraft)
+                            @php
+                                $combination = $aircraft->type . '-' . $aircraft->frameno;
+                            @endphp
+
+                        @if (!in_array($combination, $displayedCombinations))
                             <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
                             {{-- Display other aircraft details as needed --}}
-                        @endforeach
-                    </ul>
-                </div>
+                            @php
+                                $displayedCombinations[] = $combination;
+                            @endphp
+                        @endif
+                    @endforeach
+                </ul>
             </div>
+        </div>
         </div>
     </div>
 </x-app-layout>
