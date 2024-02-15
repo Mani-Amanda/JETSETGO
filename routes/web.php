@@ -37,5 +37,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
     // Add more routes that need authentication here
 });
+Route::get('requestflight/{type}/{frame}', function ($type, $frame) {
+    return view('requestpage', compact('type', 'frame'));
+})->name('request.flight');
+
+
+
 
 require __DIR__.'/auth.php';

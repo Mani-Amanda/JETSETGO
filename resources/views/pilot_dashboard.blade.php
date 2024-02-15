@@ -50,8 +50,8 @@
                                 <h3>MC</h3>
                                 <ul>
                                     @foreach ($aircrafts as $aircraft)
-                                        @if ($aircraft->serviceability == 'FMC' || $aircraft->serviceability == 'PMC')
-                                            <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
+                                        @if (($aircraft->serviceability == 'FMC' && $aircraft->type == request('type')) || ($aircraft->serviceability == 'PMC' && $aircraft->type == request('type')))
+                                            <li><a href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -60,8 +60,8 @@
                                 <h3>NMC</h3>
                                 <ul>
                                     @foreach ($aircrafts as $aircraft)
-                                        @if ($aircraft->serviceability != 'FMC' && $aircraft->serviceability != 'PMC')
-                                            <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
+                                        @if (($aircraft->serviceability != 'FMC' &&$aircraft->type == request('type')) && ($aircraft->serviceability != 'PMC'&& $aircraft->type == request('type')))
+                                            <li><a href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>
