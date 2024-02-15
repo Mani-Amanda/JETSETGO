@@ -34,7 +34,7 @@
                             <div class="col-md-4">
                                 <div class="text-center">
                                     <ul>
-                                        <li><a href="{{ route('update.aircraft', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
+                                        <li><a href="{{ route('update.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
                                         {{-- Display other aircraft details as needed --}}
                                     </ul>
                                 </div>
