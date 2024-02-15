@@ -10,12 +10,13 @@ class PilotDashboardController extends Controller
     //
     public function index()
     {
-        // Fetch aircraft data
+        // Fetch all available aircraft types
+        $types = Aircraft::pluck('type')->unique();
+
+        // Fetch all aircrafts
         $aircrafts = Aircraft::all();
 
-        
-
-        // Pass aircraft data to the view
-        return view('pilot_dashboard', compact('aircrafts'));
+        // Pass data to the view
+        return view('pilot_dashboard', compact('types', 'aircrafts'));
     }
 }
