@@ -10,7 +10,7 @@
     <body>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ ucfirst($type) }} - {{ $frame }} Request Flight
+                {{ ucfirst($type) }} - {{ $frame }} Update Flight
             </h2>
         </x-slot>
         <div class="py-12">
@@ -47,4 +47,5 @@
         </div>
     </body>
     </html>
+    
 </x-app-layout>

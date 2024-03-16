@@ -17,39 +17,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
     {{-- Display filtered aircrafts --}}
-    <div class="row justify-content-center mb-4">
-        <div class="col-auto">
-            <h3>Aircrafts List</h3>
-        </div>
-    </div>
-    <div class="row">
     
-        @php
-            $displayedCombinations = [];
-        @endphp
-
-        @foreach ($aircrafts as $aircraft)
-            @php
-                $combination = $aircraft->type . '-' . $aircraft->frameno;
-            @endphp
-
-            @if (!in_array($combination, $displayedCombinations))
-                <div class="col-md-4">
-                <div class="text-center">
-                    <ul>
-                        <li>{{ $aircraft->type }} - {{ $aircraft->frameno }}</li>
-                        {{-- Display other aircraft details as needed --}}
-                    </ul>
-                    </div>
-                </div>
-                @php
-                    $displayedCombinations[] = $combination;
-                @endphp
-            @endif
-        @endforeach
-    
-    </div>
-</div>
 
                     {{-- Dropdown menu to select aircraft type --}}
                     <div class="row justify-content-center mb-4">
@@ -81,11 +49,32 @@
                         <div class="row">
                             <div class="col-md-6">
                             <div class="text-center">
-                                <h3>MC</h3>
+                                <h3>MC (Mission Capable)</h3>
                                 <ul>
                                     @foreach ($aircrafts as $aircraft)
                                         @if (($aircraft->serviceability == 'FMC' && $aircraft->type == request('type')) || ($aircraft->serviceability == 'PMC' && $aircraft->type == request('type')))
-                                            <li><a href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</a></li>
+                                        <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" align='middle'><b>{{ $aircraft->type }} - {{ $aircraft->frameno }}</b></h5>
+                                @if ($aircraft->type == 'Y-12')
+                                    <img src="{{ asset('assets/img/Y12.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                    <a class="btn btn-primary" href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}" role="button">Request Aircraft</a>
+                                @elseif ($aircraft->type == 'B-200')
+                                    <img src="{{ asset('assets/img/B200.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                    <a class="btn btn-primary" href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}" role="button">Request Aircraft</a>
+                                @elseif ($aircraft->type == 'MA-600')
+                                    <img src="{{ asset('assets/img/MA600.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                    <a class="btn btn-primary" href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}" role="button">Request Aircraft</a>
+                                @else
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -93,11 +82,29 @@
                             </div>
                             <div class="col-md-6">
                             <div class="text-center">
-                                <h3>NMC</h3>
+                                <h3>NMC (Non Mission Capable)</h3>
                                 <ul>
                                     @foreach ($aircrafts as $aircraft)
                                         @if (($aircraft->serviceability != 'FMC' &&$aircraft->type == request('type')) && ($aircraft->serviceability != 'PMC'&& $aircraft->type == request('type')))
-                                            <li><a href="{{ route('request.flight', ['type' => $aircraft->type, 'frame' => $aircraft->frameno]) }}">{{ $aircraft->type }} - {{ $aircraft->frameno }}</a></li>
+                                            <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" align='middle'><b>{{ $aircraft->type }} - {{ $aircraft->frameno }}</b></h5>
+                                @if ($aircraft->type == 'Y-12')
+                                    <img src="{{ asset('assets/img/Y12.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                @elseif ($aircraft->type == 'B-200')
+                                    <img src="{{ asset('assets/img/B200.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                @elseif ($aircraft->type == 'MA-600')
+                                    <img src="{{ asset('assets/img/MA600.jpg') }}" alt="Aircraft Image" class="aircraft-image">
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                @else
+                                    <p class="card-text">Any additional details about the aircraft can go here.</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -119,6 +126,14 @@
                 </div>
             </div>
         </div>
+        <style>
+        
+
+        .aircraft-image {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
