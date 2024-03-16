@@ -19,6 +19,9 @@ Objectives identified for the development process,
 and allocate flights for pilots.
 - Connect frontend with the backend to get a more stylish GUI.
 
+## Setting Up the Laravel Application Locally
+To set up the Laravel application locally, start by cloning the repository to your machine using the provided GitHub URL. Once cloned, navigate to the project directory and run `composer install` to install the required dependencies. Next, create a copy of the `.env.example` file and rename it to `.env`, then generate an application key using `php artisan key:generate`. Configure your database settings in the `.env` file and run migrations with `php artisan migrate`. Finally, serve the application locally with `php artisan serve`. Access your Laravel application in your web browser by visiting `http://localhost:8000`. Ensure to update the `.env` file with appropriate settings for your environment.
+
 ## Conclusion
 In conclusion, the development and implementation of the flight scheduling application
 represent a significant step forward in addressing the challenges faced by the aviation
