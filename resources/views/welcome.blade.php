@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>JetSet GO</title>
+  <title>JETSETGO</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -47,7 +47,7 @@
           <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('login') }}">Log-In</a></li>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              <li><a href="{{ route('register') }}">Sign Up</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

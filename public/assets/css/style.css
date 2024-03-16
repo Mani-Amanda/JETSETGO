@@ -1826,3 +1826,7 @@ section {
     padding-top: 4px;
   }
 }
+.aircraft-image {
+  width: 200px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+}
